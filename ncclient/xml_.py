@@ -75,6 +75,14 @@ H3C_ACTION_1_0 = "http://www.h3c.com/netconf/action:1.0"
 NETCONF_MONITORING_NS = "urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring"
 #: Namespace for netconf notifications
 NETCONF_NOTIFICATION_NS = "urn:ietf:params:xml:ns:netconf:notification:1.0"
+#: Namespace for subscribed notifications
+SUBSCRIBED_NOTIFICATION_NS = "urn:ietf:params:xml:ns:yang:ietf-subscribed-notifications"
+#: Namespace for YANG-Push
+YANG_PUSH_NS = "urn:ietf:params:xml:ns:yang:ietf-yang-push"
+#: Namespace for datastores
+DATASTORES_NS = "urn:ietf:params:xml:ns:yang:ietf-datastores"
+#: Namespace for POWEFF level 1
+POWEFF_NS = "urn:ietf:params:xml:ns:yang:ietf-poweff-level-1"
 #: Namespace for netconf with-defaults (RFC 6243)
 NETCONF_WITH_DEFAULTS_NS = "urn:ietf:params:xml:ns:yang:ietf-netconf-with-defaults"
 #: Namespace for Alcatel-Lucent SR OS Base r13 YANG models

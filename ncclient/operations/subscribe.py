@@ -62,3 +62,31 @@ class CreateSubscription(RPC):
             sub_ele_ns(node, "stopTime", NETCONF_NOTIFICATION_NS).text = stop_time
 
         return self._request(node)
+
+class EstablishSubscription(RPC):
+    "`establish-subscription` RPC."
+
+    def request(self, datastore, datastore_xpath_filter, period):
+        """Establishes a subscription for periodic YANG-Push updates from
+        the server.
+
+        *filter* specifies the subset of datastore changes to receive.
+
+        *periodic* specifies the period to wait between updates.
+
+        """
+        node = new_ele_ns("establish-subscription", SUBSCRIBED_NOTIFICATION_NS)
+
+        datastore_nsmap = {None: YANG_PUSH_NS, "ds": DATASTORES_NS}
+        etree.SubElement(node, "datastore", {}, datastore_nsmap).text = datastore
+
+        filter_nsmap = {None: YANG_PUSH_NS, "poweff": POWEFF_NS}
+        etree.SubElement(node, "datastore-xpath-filter", {},
+                         filter_nsmap).text = datastore_xpath_filter
+
+        periodic = sub_ele_ns(node, "periodic", YANG_PUSH_NS)
+        sub_ele_ns(periodic, "period", YANG_PUSH_NS).text = period
+
+        #print(etree.tostring(node))
+
+        return self._request(node)
