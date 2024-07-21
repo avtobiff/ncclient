@@ -163,7 +163,7 @@ class SSHSession(Session):
             password            = None,
             key_filename        = None,
             allow_agent         = True,
-            hostkey_verify      = True,
+            hostkey_verify      = False,
             hostkey_b64         = None,
             look_for_keys       = True,
             ssh_config          = None,
